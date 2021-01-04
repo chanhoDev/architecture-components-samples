@@ -176,11 +176,8 @@ navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation"
 navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 navigation.safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 deps.navigation = navigation
-
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
-
 deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
-
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
 def retrofit = [:]

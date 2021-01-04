@@ -17,10 +17,13 @@
 package com.example.android.observability
 
 import android.content.Context
-import com.example.android.observability.persistence.UserDao
+import com.example.android.observability.persistence.next.User2Dao
+import com.example.android.observability.persistence.next.User2Database
+import com.example.android.observability.persistence.user.UserDao
 
-import com.example.android.observability.persistence.UsersDatabase
-import com.example.android.observability.ui.ViewModelFactory
+import com.example.android.observability.persistence.user.UsersDatabase
+import com.example.android.observability.ui.next.ViewModel2Factory
+import com.example.android.observability.ui.user.ViewModelFactory
 
 /**
  * Enables injection of data sources.
@@ -35,5 +38,15 @@ object Injection {
     fun provideViewModelFactory(context: Context): ViewModelFactory {
         val dataSource = provideUserDataSource(context)
         return ViewModelFactory(dataSource)
+    }
+
+    fun provideViewModel2Factory(context: Context):ViewModel2Factory{
+        val dataSource = provideUser2DatsSource(context)
+        return ViewModel2Factory(dataSource)
+    }
+
+    private fun provideUser2DatsSource(context: Context): User2Dao {
+        val database = User2Database.getInstance(context)
+        return database.user2Dao()
     }
 }

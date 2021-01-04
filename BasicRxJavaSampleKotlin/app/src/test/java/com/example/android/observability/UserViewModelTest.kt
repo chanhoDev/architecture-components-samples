@@ -17,9 +17,9 @@
 package com.example.android.observability
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.android.observability.persistence.User
-import com.example.android.observability.persistence.UserDao
-import com.example.android.observability.ui.UserViewModel
+import com.example.android.observability.persistence.user.User
+import com.example.android.observability.persistence.user.UserDao
+import com.example.android.observability.ui.user.UserViewModel
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import org.junit.Before

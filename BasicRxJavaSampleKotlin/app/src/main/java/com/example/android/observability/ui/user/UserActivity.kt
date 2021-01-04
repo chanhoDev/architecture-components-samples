@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.example.android.observability.ui
+package com.example.android.observability.ui.user
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.observability.Injection
 import com.example.android.observability.R
+import com.example.android.observability.ui.next.NextActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_user.update_user_button
-import kotlinx.android.synthetic.main.activity_user.user_name
-import kotlinx.android.synthetic.main.activity_user.user_name_input
+import kotlinx.android.synthetic.main.activity_user.*
 
 /**
  * Main screen of the app. Displays a user name and gives the option to update the user name.
@@ -39,6 +39,8 @@ class UserActivity : AppCompatActivity() {
     private val viewModel: UserViewModel by viewModels { viewModelFactory }
 
     private val disposable = CompositeDisposable()
+
+    private val owner = this@UserActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +60,10 @@ class UserActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ this.user_name.text = it },
                         { error -> Log.e(TAG, "Unable to get username", error) }))
+
+        next_button.setOnClickListener {
+           startActivity(Intent(owner,NextActivity::class.java))
+        }
     }
 
     override fun onStop() {

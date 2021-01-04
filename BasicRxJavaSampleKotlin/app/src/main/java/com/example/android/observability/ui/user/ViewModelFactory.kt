@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.android.observability.persistence
+package com.example.android.observability.ui.user
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import java.util.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.android.observability.persistence.user.UserDao
 
-@Entity(tableName = "users")
-data class User(@PrimaryKey
-                @ColumnInfo(name = "userid")
-                val id: String = UUID.randomUUID().toString(),
-                @ColumnInfo(name = "username")
-                val userName: String)
+/**
+ * Factory for ViewModels
+ */
+class ViewModelFactory(private val dataSource: UserDao) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
+            return UserViewModel(dataSource) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
