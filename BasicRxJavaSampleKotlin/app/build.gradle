@@ -106,5 +106,12 @@ dependencies {
     kapt deps.hilt.hilt_compiler
     implementation deps.hilt.fragment_ktx
 
+    //Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+
+    //OkHttp3
+    implementation deps.okhttp
+    implementation deps.okhttp_logging_interceptor
 
 }

@@ -51,7 +51,7 @@ versions.mockito_all = "1.10.19"
 versions.mockito_android = "2.25.0"
 versions.mockwebserver = "3.8.1"
 versions.navigation = "2.3.0-alpha01"
-versions.okhttp_logging_interceptor = "3.9.0"
+versions.okhttp_logging_interceptor = "4.6.0"
 versions.paging = "3.0.0-alpha11"
 versions.recyclerview = "1.2.0-beta01"
 versions.retrofit = "2.9.0"
@@ -192,7 +192,10 @@ navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation"
 navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 navigation.safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 deps.navigation = navigation
+
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp_logging_interceptor"
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
+
 deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
@@ -237,3 +240,4 @@ def addRepos(RepositoryHandler handler) {
     handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 ext.addRepos = this.&addRepos
+
