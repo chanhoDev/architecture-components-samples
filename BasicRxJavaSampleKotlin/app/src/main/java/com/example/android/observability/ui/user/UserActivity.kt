@@ -23,7 +23,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.observability.Injection
 import com.example.android.observability.R
-import com.example.android.observability.ui.next.NextActivity
+import com.example.android.observability.ui.next.User2Activity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -62,7 +62,7 @@ class UserActivity : AppCompatActivity() {
                         { error -> Log.e(TAG, "Unable to get username", error) }))
 
         next_button.setOnClickListener {
-           startActivity(Intent(owner,NextActivity::class.java))
+            startActivity(Intent(owner, User2Activity::class.java))
         }
     }
 

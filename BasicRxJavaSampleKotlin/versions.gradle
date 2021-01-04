@@ -63,6 +63,10 @@ versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.truth = "1.0.1"
 versions.work = "2.2.0"
+versions.hilt = "2.28-alpha"
+versions.hilt_jetpack = "1.0.0-alpha02"
+versions.fragment_ktx ="1.3.0-alpha07"
+
 ext.versions = versions
 
 def build_versions = [:]
@@ -95,6 +99,18 @@ atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_junit"
 atsl.runner = "androidx.test:runner:$versions.atsl_runner"
 atsl.rules = "androidx.test:rules:$versions.atsl_rules"
 deps.atsl = atsl
+
+//hilt 추가
+def hilt =[:]
+hilt.hilt_android ="com.google.dagger:hilt-android:$versions.hilt"
+hilt.hilt_android_compiler ="com.google.dagger:hilt-android-compiler:$versions.hilt"
+hilt.hilt_lifecycle_viewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hilt_jetpack"
+hilt.hilt_compiler = "androidx.hilt:hilt-compiler:$versions.hilt_jetpack"
+hilt.hilt_android_gradle_plugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+hilt.fragment_ktx = "androidx.fragment:fragment-ktx:$versions.fragment_ktx"
+
+deps.hilt = hilt
+
 
 deps.benchmark = "androidx.benchmark:benchmark-junit4:$versions.benchmark"
 deps.benchmark_gradle = "androidx.benchmark:benchmark-gradle-plugin:$versions.benchmark"

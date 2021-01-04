@@ -20,7 +20,6 @@ import android.content.Context
 import com.example.android.observability.persistence.next.User2Dao
 import com.example.android.observability.persistence.next.User2Database
 import com.example.android.observability.persistence.user.UserDao
-
 import com.example.android.observability.persistence.user.UsersDatabase
 import com.example.android.observability.ui.next.ViewModel2Factory
 import com.example.android.observability.ui.user.ViewModelFactory
@@ -30,6 +29,11 @@ import com.example.android.observability.ui.user.ViewModelFactory
  */
 object Injection {
 
+
+    fun proivideViewModel2Factory(user2Dao:User2Dao):ViewModel2Factory{
+        return ViewModel2Factory(user2Dao)
+    }
+
     fun provideUserDataSource(context: Context): UserDao {
         val database = UsersDatabase.getInstance(context)
         return database.userDao()
@@ -38,15 +42,5 @@ object Injection {
     fun provideViewModelFactory(context: Context): ViewModelFactory {
         val dataSource = provideUserDataSource(context)
         return ViewModelFactory(dataSource)
-    }
-
-    fun provideViewModel2Factory(context: Context):ViewModel2Factory{
-        val dataSource = provideUser2DatsSource(context)
-        return ViewModel2Factory(dataSource)
-    }
-
-    private fun provideUser2DatsSource(context: Context): User2Dao {
-        val database = User2Database.getInstance(context)
-        return database.user2Dao()
     }
 }

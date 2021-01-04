@@ -18,6 +18,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
+
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -94,4 +96,15 @@ dependencies {
     androidTestImplementation deps.annotations
     androidTestImplementation deps.app_compat
     androidTestImplementation deps.material
+
+    // Hilt dependencies
+    implementation deps.hilt.hilt_android
+    kapt deps.hilt.hilt_android_compiler
+
+    // Hilt ViewModel extension
+    implementation deps.hilt.hilt_lifecycle_viewmodel
+    kapt deps.hilt.hilt_compiler
+    implementation deps.hilt.fragment_ktx
+
+
 }
