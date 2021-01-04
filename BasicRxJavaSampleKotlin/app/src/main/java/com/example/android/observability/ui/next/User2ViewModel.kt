@@ -1,16 +1,21 @@
 package com.example.android.observability.ui.next
 
 import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.android.observability.persistence.next.User2
-import com.example.android.observability.persistence.next.User2Dao
+import com.example.android.observability.repository.MainRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class User2ViewModel(private val dataSource: User2Dao) : ViewModel() {
+class User2ViewModel
+@ViewModelInject
+constructor(
+        private val mainRepository: MainRepository
+) : ViewModel() {
 
     private val _user2 = MutableLiveData<User2>()
     val user2: LiveData<User2> = _user2
@@ -22,7 +27,7 @@ class User2ViewModel(private val dataSource: User2Dao) : ViewModel() {
 
     fun getUserName() {
         disposable.add(
-                dataSource.getUserById("1")
+                mainRepository.getUserById("1")
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({
@@ -35,7 +40,7 @@ class User2ViewModel(private val dataSource: User2Dao) : ViewModel() {
 
     fun updateUserName(userName: String) {
         disposable.add(
-                dataSource.insertUser(User2("1", userName))
+                mainRepository.setUserName(User2("1", userName))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({

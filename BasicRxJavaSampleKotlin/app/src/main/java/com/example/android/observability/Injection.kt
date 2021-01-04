@@ -21,18 +21,12 @@ import com.example.android.observability.persistence.next.User2Dao
 import com.example.android.observability.persistence.next.User2Database
 import com.example.android.observability.persistence.user.UserDao
 import com.example.android.observability.persistence.user.UsersDatabase
-import com.example.android.observability.ui.next.ViewModel2Factory
 import com.example.android.observability.ui.user.ViewModelFactory
 
 /**
  * Enables injection of data sources.
  */
 object Injection {
-
-
-    fun proivideViewModel2Factory(user2Dao:User2Dao):ViewModel2Factory{
-        return ViewModel2Factory(user2Dao)
-    }
 
     fun provideUserDataSource(context: Context): UserDao {
         val database = UsersDatabase.getInstance(context)

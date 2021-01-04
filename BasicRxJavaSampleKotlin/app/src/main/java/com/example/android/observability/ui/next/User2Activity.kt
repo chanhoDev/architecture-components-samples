@@ -12,19 +12,12 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class User2Activity : AppCompatActivity(R.layout.activity_next) {
-    private lateinit var viewModelFactory: ViewModel2Factory
 
-    private val viewModel: User2ViewModel by viewModels {
-        viewModelFactory
-    }
+    private val viewModel: User2ViewModel by viewModels()
     private val owner = this@User2Activity
-
-    @Inject
-    lateinit var user2Dao: User2Dao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModelFactory = Injection.proivideViewModel2Factory(user2Dao)
         update_user_button.setOnClickListener {
             update_user_button.isEnabled = false
             viewModel.updateUserName(user_name_input.text.toString())
