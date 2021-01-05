@@ -29,9 +29,7 @@ object RepositoryModule {
     @Provides
     fun provideBlogMainRepository(
             blogDao:BlogDao,
-            blogRetrofit:BlogRetrofit,
-            cachMapper: CacheMapper,
-            networkMapper: NetworkMapper):MainBlogRepository{
-        return MainBlogRepository(blogDao,blogRetrofit,cachMapper,networkMapper)
+            blogRetrofit:BlogRetrofit):MainBlogRepository{
+        return MainBlogRepository(blogDao,blogRetrofit)
     }
 }

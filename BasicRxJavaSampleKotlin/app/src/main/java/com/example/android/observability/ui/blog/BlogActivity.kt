@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.observability.R
 import com.example.android.observability.data.blog.Blog
-import com.example.android.observability.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_blog.*
 
@@ -29,21 +28,25 @@ class BlogActivity : AppCompatActivity(R.layout.activity_blog) {
 
     private fun onObserve() {
         with(viewModel) {
-            dataState.observe(owner, { dataState ->
-                when (dataState) {
-                    is DataState.Success<List<Blog>> -> {
-                        displayLoading(false)
-                        populateRecyclerView(dataState.data)
-                    }
-                    is DataState.Loading -> {
-                        displayLoading(true)
-                    }
-                    is DataState.Error -> {
-                        displayLoading(false)
-                        displayError(dataState.exception.message)
-                    }
-                }
+            dataState.observe(owner,{data ->
+                displayLoading(false)
+                populateRecyclerView(data)
             })
+//            dataState.observe(owner, { dataState ->
+//                when (dataState) {
+//                    is DataState.Success<List<Blog>> -> {
+//                        displayLoading(false)
+//                        populateRecyclerView(dataState.data)
+//                    }
+//                    is DataState.Loading -> {
+//                        displayLoading(true)
+//                    }
+//                    is DataState.Error -> {
+//                        displayLoading(false)
+//                        displayError(dataState.exception.message)
+//                    }
+//                }
+//            })
             blogTitle.observe(owner,{title->
                 Toast.makeText(owner, title, Toast.LENGTH_SHORT).show()
             })
@@ -61,7 +64,7 @@ class BlogActivity : AppCompatActivity(R.layout.activity_blog) {
 
     private fun populateRecyclerView(blogs: List<Blog>) {
         if (!blogs.isNullOrEmpty()) {
-            adapter.setItems(ArrayList((blogs)))
+            adapter.setItems(ArrayList(blogs))
         }
     }
 
