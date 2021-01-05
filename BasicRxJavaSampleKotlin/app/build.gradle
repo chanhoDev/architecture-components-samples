@@ -35,7 +35,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -52,6 +52,10 @@ dependencies {
     implementation deps.app_compat
     implementation deps.fragment.runtime_ktx
     implementation deps.material
+    implementation deps.constraint_layout
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+
 
     // Architecture components
     implementation deps.lifecycle.runtime
@@ -116,5 +120,10 @@ dependencies {
     //OkHttp3
     implementation deps.okhttp
     implementation deps.okhttp_logging_interceptor
+
+    //Glide
+    implementation deps.glide.runtime
+    kapt deps.glide.compiler
+
 
 }
