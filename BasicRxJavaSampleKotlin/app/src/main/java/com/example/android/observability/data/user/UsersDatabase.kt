@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.observability.persistence.user
+package com.example.android.observability.data.user
 
 import androidx.room.Database
 import androidx.room.Room

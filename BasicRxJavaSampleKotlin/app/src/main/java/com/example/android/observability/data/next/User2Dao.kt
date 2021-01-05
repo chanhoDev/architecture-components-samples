@@ -1,4 +1,4 @@
-package com.example.android.observability.persistence.next
+package com.example.android.observability.data.next
 
 import androidx.room.Dao
 import androidx.room.Insert

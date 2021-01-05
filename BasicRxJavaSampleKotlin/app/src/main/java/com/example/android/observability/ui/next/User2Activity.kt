@@ -3,12 +3,9 @@ package com.example.android.observability.ui.next
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.android.observability.Injection
 import com.example.android.observability.R
-import com.example.android.observability.persistence.next.User2Dao
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_next.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class User2Activity : AppCompatActivity(R.layout.activity_next) {

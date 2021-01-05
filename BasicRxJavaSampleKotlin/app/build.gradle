@@ -59,10 +59,12 @@ dependencies {
     implementation deps.room.runtime
     kapt deps.room.compiler
     implementation deps.room.rxjava2
+    implementation deps.room.ktx
 
     // RxJava
     implementation deps.rx_android
     implementation deps.rxjava2
+    implementation deps.rxbinding3
 
     // Kotlin
     implementation deps.kotlin.stdlib
@@ -109,6 +111,7 @@ dependencies {
     //Retrofit
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
+    implementation deps.retrofit.adapter_rxjava2
 
     //OkHttp3
     implementation deps.okhttp

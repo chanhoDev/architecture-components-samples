@@ -18,7 +18,7 @@ package com.example.android.observability.ui.user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.android.observability.persistence.user.UserDao
+import com.example.android.observability.data.user.UserDao
 
 /**
  * Factory for ViewModels

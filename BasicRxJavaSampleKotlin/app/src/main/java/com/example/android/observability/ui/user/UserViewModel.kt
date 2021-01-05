@@ -17,8 +17,8 @@
 package com.example.android.observability.ui.user
 
 import androidx.lifecycle.ViewModel
-import com.example.android.observability.persistence.user.User
-import com.example.android.observability.persistence.user.UserDao
+import com.example.android.observability.data.user.User
+import com.example.android.observability.data.user.UserDao
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

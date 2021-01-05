@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,35 +15,41 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context="com.example.android.observability.ui.user.UserActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.observability.ui.user.UserActivity">
 
     <TextView
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp" tools:text="Hello World!"/>
+        android:textSize="32sp"
+        tools:text="Hello World!" />
 
     <EditText
         android:id="@+id/user_name_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/update_user_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/update_user"/>
+        android:text="@string/update_user" />
 
     <Button
-        android:id="@+id/next_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/room_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NEXT"/>
+        android:text="ROOM_TEST" />
 
+    <Button
+        android:id="@+id/api_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="API_TEST" />
 
 
 </LinearLayout>

@@ -1,7 +1,7 @@
 package com.example.android.observability.repository
 
-import com.example.android.observability.persistence.next.User2
-import com.example.android.observability.persistence.next.User2Dao
+import com.example.android.observability.data.next.User2
+import com.example.android.observability.data.next.User2Dao
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
