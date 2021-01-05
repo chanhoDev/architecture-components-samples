@@ -15,10 +15,6 @@ constructor(
         private val mainBlogRepository: MainBlogRepository
 ) : ViewModel() {
 
-//    private val _dataState: MutableLiveData<DataState<List<Blog>>> = MutableLiveData()
-//    val dataState: LiveData<DataState<List<Blog>>>
-//        get() = _dataState
-
     private val _dataState: MutableLiveData<List<Blog>> = MutableLiveData()
     val dataState: LiveData<List<Blog>>
         get() = _dataState

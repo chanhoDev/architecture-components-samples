@@ -4,11 +4,13 @@ import android.app.DownloadManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.android.observability.R
 import com.example.android.observability.data.blog.Blog
+import com.example.android.observability.databinding.ItemBlogBinding
 import kotlinx.android.synthetic.main.item_blog.view.*
 
 class BlogAdapter(private val viewModel: BlogViewModel) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
@@ -22,8 +24,8 @@ class BlogAdapter(private val viewModel: BlogViewModel) : RecyclerView.Adapter<B
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_blog,parent,false)
-        return BlogViewHolder(view,viewModel)
+        val binding :ItemBlogBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.item_blog,parent,false)
+        return BlogViewHolder(binding,viewModel)
     }
 
     override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
@@ -35,20 +37,17 @@ class BlogAdapter(private val viewModel: BlogViewModel) : RecyclerView.Adapter<B
         return items.size
     }
 
-    class BlogViewHolder(itemView: View, private val viewModel: BlogViewModel) : RecyclerView.ViewHolder(itemView) {
+    class BlogViewHolder(private val binding:ItemBlogBinding, private val viewModel: BlogViewModel) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(blogItem: Blog) {
-            with(itemView){
-                blog_layout.setOnClickListener {
-                    viewModel.onBlogItemClicekd(blogItem.title)
-                }
-                text_title.text = blogItem.title
-                text_description.text = blogItem.body
-                Glide.with(itemView.blog_layout).load(blogItem.image)
+            with(binding){
+                vm = viewModel
+                item = blogItem
+                Glide.with(blogLayout).load(blogItem.image)
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.placeholder)
                         .apply(RequestOptions().centerCrop())
-                        .into(itemView.image)
+                        .into(image)
             }
         }
     }
